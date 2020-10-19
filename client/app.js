@@ -8,7 +8,7 @@ function createWindow() {
             nodeIntegration: true,
         }
     });
-    Window.open("./index.html");
+    Window.loadFile("./index.html");
 }
 
 app.whenReady().then(createWindow);
