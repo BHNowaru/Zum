@@ -1,16 +1,25 @@
 const app = require('express')();
 const server = require('http').createServer(app);
 const options = {
-    serverClient: false,
-    pingInterval: 10000,
-    pingTimeout: 5000,
-    cookie: false
+    serverClient: false
 };
 const io = require('socket.io')(server, options);
 const port = 2302;
 
 io.on('connection', socket => {
-    console.log('connect');
+
+    socket.emit('an event', { some: 'data' });
+
+    socket.emit('hello', 'world', (data) => {
+        console.log(data);
+    });
+
+    socket.join('room 0', () => {
+
+        let rooms = Object.keys(socket.rooms);
+
+        console.log(rooms);
+    })
 });
 
 server.listen(port, () => {
