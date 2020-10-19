@@ -1,0 +1,22 @@
+{
+  "name": "zum",
+  "version": "1.0.0",
+  "description": "Booty zoom.",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron client/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BHNowaru/Zum.git"
+  },
+  "keywords": [
+    "zoom"
+  ],
+  "author": "Noire and ICantRead",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BHNowaru/Zum/issues"
+  },
+  "homepage": "https://github.com/BHNowaru/Zum#readme"
+}
