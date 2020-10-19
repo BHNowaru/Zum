@@ -13,7 +13,7 @@ setTimeout(() => {
 //allow connecting to socket
 const io = require("socket.io-client");
 var Reconnecting = false;
-const Socket = io("135.180.72.85:777", {
+const Socket = io("http://135.180.72.85:2302", {
     reconnection: true,
     reconnectionAttempts: 3,
     reconnectionDelayMax: 3500,
@@ -50,5 +50,7 @@ $("#connect").on("click", () => {
         return;
     }
 
-    Socket.open();
+    Socket.open(() =>{
+        console.log("Attempting to connect...")
+    });
 })
