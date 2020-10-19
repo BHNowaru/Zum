@@ -1,8 +1,62 @@
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity:100;}
+}
+
+@keyframes move {
+    from {transform: translate(-50%, -50%)}
+    to {transform: translate(-50%, -100%)}
+}
+
+html {
+    overflow: hidden;
+}
 body {
-    background-color: white;
+    background-color: #0A090C;
+}
+
+#particles {
+    position: absolute;
 }
 
 .waves {
-    position: relative;
-    top: 200px;
+    position: absolute;
+    transform:rotate(-160deg) scale(4,4);
+    right:-600px;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+}
+
+.zumtext {
+    font-family: 'Sansita Swashed', cursive;
+    color:white;
+    opacity:0;
+    font-size: 5vw;
+    animation-name: fade, move;
+    animation-duration: 1.5s, 2s;
+    animation-delay: 0.5s, 0.5s;
+    animation-fill-mode: forwards, forwards;
+    z-index:15;
+    margin: 0 auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+}
+
+.zum-subtext {
+    color: white;
+    opacity:0;
+    animation-name: fade;
+    animation-duration: 2.5s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lemonada', cursive;
 }
