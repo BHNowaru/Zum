@@ -13,17 +13,17 @@ setTimeout(() => {
 //allow connecting to socket
 const io = require("socket.io-client");
 var Reconnecting = false;
-const Socket = io("http://135.180.72.85:2302", {
+const Socket = io("http://135.180.72.85:2302/", {
     reconnection: true,
     reconnectionAttempts: 3,
-    reconnectionDelayMax: 3500,
-    reconnectionDelay: 3000,
+    reconnectionDelayMax: 1500,
+    reconnectionDelay: 1000,
     autoConnect: false,  
+    forceNew: true,
     query: {
         auth: "ligmoid"
     }
 })
-
     
 Socket.on("connect_error", async () => {
     console.log("Failed to connect to Socket.");
@@ -45,12 +45,24 @@ Socket.on("reconnect_failed", () => {
     console.log("Reconnect failed.")
 })
 
+Socket.on("hello", (name, fn) => {
+    console.log(name, "::", fn)
+
+    console.log("sending callback");
+    fn('ligma ass')
+})
+
 $("#connect").on("click", () => {
-    if (Reconnecting || Socket.connected) {
+    if (Reconnecting) {
         return;
     }
 
-    Socket.open(() =>{
-        console.log("Attempting to connect...")
-    });
+    if (Socket.connected) {
+        console.log("Sending broadcast...");
+        Socket.emit("hello", "world")
+        return;
+    }
+
+    Socket.open();
 })
+    

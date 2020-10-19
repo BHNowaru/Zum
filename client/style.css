@@ -72,3 +72,11 @@ body {
     animation-delay: 2.5s;
     animation-fill-mode: forwards;
 }
+
+#responsetext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 300%);
+    color: white;
+}
