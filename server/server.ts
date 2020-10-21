@@ -8,8 +8,13 @@ const port = 2302;
 
 io.on('connection', socket => {
 
+    socket.on("hello", (data, callback) => {
+        console.log(data, "::", callback)
+    })
+
     socket.emit('an event', { some: 'data' });
 
+    //sending data to all sockets
     socket.emit('hello', 'world', (data) => {
         console.log(data);
     });
