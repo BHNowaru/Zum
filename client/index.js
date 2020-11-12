@@ -44,7 +44,6 @@ ipcRenderer.once("connected", () => {
     })
 
     setTimeout(() => {
-
         window.location.href = "./assets/app.html"
     }, 1600)
 

@@ -7,7 +7,7 @@ $(".lds-ellipsis").fadeIn("fast", () => {
 window.addEventListener("load", () => {
     $(".lds-ellipsis").fadeOut("slow", () => {
         $(".everything").fadeIn("fast", () => {
-
+            console.log("Zum loaded.");
         });
     })
 })
